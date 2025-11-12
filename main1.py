@@ -4,7 +4,19 @@ app = Flask(__name__) # переменная "name" содержит имя те
 
 @app.route('/') # этот декоратор используется для присвоения URL адреса функциям
 def hello_world():
-    return render_template('index1.html')
+    context = {
+        "caption": "Большой куш",
+        "link": "Посмотреть про актёра"
+    }
+    return render_template('index1.html', **context)
+
+@app.route("/shablon/")
+def hello_world2():
+    context = {
+        "caption": "Фильм Большой куш",
+        "link": "Посмотреть на кинопоиск"
+    }
+    return render_template('index1.html', **context)
 
 @app.route('/person/')
 def person():
