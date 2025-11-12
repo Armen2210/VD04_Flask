@@ -1,207 +1,66 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <title>Главная — Мини-сайт</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <style>
-
-
-  #carouselExampleAutoplaying .carousel-item {
-      height: 420px;                 /* базовая высота; страница не прыгает */
-    }
-    #carouselExampleAutoplaying .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;             /* заполняет всю ширину, без искажений */
-      object-position: center;       /* центр кадра */
-      display: block;
-    }
-
-    /* Адаптивная высота, чтобы не было «кирпича» на мобилках/десктопах */
-    @media (max-width: 576px) {
-      #carouselExampleAutoplaying .carousel-item { height: 240px; }
-    }
-    @media (min-width: 768px) {
-      #carouselExampleAutoplaying .carousel-item { height: 360px; }
-    }
-    @media (min-width: 1200px) {
-      #carouselExampleAutoplaying .carousel-item { height: 520px; }
-    }
-
-    .card-body{
-     display: flex;
-     flex-direction: column;
-     }
-
-    .card-body .btn{
-      margin-top: auto;
-    }
-  </style>
-
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
-
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" href="/">Flask Demo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="/">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog">Блог</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacts">Контакты</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <!-- Шапка: название + меню -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Snatch</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
-              aria-controls="nav" aria-expanded="false" aria-label="Переключить навигацию">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#slider">Слайдер</a></li>
-          <li class="nav-item"><a class="nav-link" href="#cards">Карточки</a></li>
-          <li class="nav-item"><a class="nav-link" href="#faq">Инфо</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ url_for('person') }}">Персонажи</a></li>
+<main class="container py-4">
+  <div class="p-4 p-md-5 mb-4 bg-light rounded-3">
+    <h1 class="display-6">Добро пожаловать!</h1>
+    <p class="lead">Это простая главная страница на Flask + Bootstrap.</p>
+    <a href="/blog" class="btn btn-primary btn-sm">Перейти в блог</a>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h5 class="card-title">Структура</h5>
+        <p class="card-text">Три отдельные страницы: главная, блог, контакты. Без базового шаблона.</p>
+      </div></div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h5 class="card-title">Технологии</h5>
+        <p class="mb-1">Flask, Jinja2, Bootstrap 5.</p>
+        <ul class="mb-0">
+          <li>Шаблоны — <code>templates/</code></li>
+          <li>Статика — <code>static/</code> (по желанию)</li>
         </ul>
-      </div>
+      </div></div>
     </div>
-  </nav>
-
-  <main>
-    <!-- Секция 1: Слайдер -->
-    <section id="slider" class="container-fluid px-0">
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="static/image/maxresdefault.jpg" class="img-fluid h-100 w-auto" alt="Большой куш">
-          </div>
-          <div class="carousel-item">
-            <img src="static/image/wide_fd3f84cbfdd9c424b105e0d8a1e5e509.jpg" class="img-fluid h-100 w-auto" alt="Большой куш">
-          </div>
-          <div class="carousel-item">
-            <img src="static/image/original.avif" class="img-fluid h-100 w-auto" alt="Большой куш">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Предыдущий</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Следующий</span>
-        </button>
-      </div>
-    </section>
-
-    <!-- Секция 2: Карточки (3 колонки на lg, 1 на sm) -->
-    <section id="cards" class="container py-4">
-      <div class="row row-cols-1 row-cols-lg-3 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="static/image/snatch-movie.webp" class="card-img-top" alt="Микки-цыган">
-            <div class="card-body">
-              <h5 class="card-title">Микки-цыган</h5>
-              <p class="card-text">Персонаж фильма Гая Ричи «Большой куш», главный представитель сообщества цыган-ирландских кочевников. Разукрашен татуировками не самого высокого качества.
-                Говорит быстро и с сильным характерным акцентом, из-за чего окружающим часто сложно его понять.
-                Вопреки создаваемому образу задиристого раздолбая является чемпионом по кулачным боям и способен строить хитрые планы.
-                Иногда бывает жестоким человеком, но не бессердечен: испытывает глубокую любовь к своей матери.
-              </p>
-              <a href="#" class="btn btn-primary">Перейти куда-нибудь</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="static/image/maxresdefault (1).jpg" class="card-img-top" alt="Турецкий">
-            <div class="card-body">
-              <h5 class="card-title">Турецкий</h5>
-              <p class="card-text">Владелец зала аркадных автоматов, на прибыль с которого нанимает и выставляет бойцов для нелегальных боксёрских поединков.
-                Имя получил в честь самолёта, на котором едва не разбились его родители.
-                Чаще всего уравновешен и вместе с тем язвителен.
-                Любит пить молочные продукты.
-              </p>
-              <a href="#" class="btn btn-primary">Перейти куда-нибудь</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="static/image/2025-05-27_14-22-43.jpg" class="card-img-top" alt="Кирпич">
-            <div class="card-body">
-              <h5 class="card-title">Кирпич</h5>
-              <p class="card-text">Бандит, выкравший бриллиант из антверпенской конторы. Предусмотрителен в вопросах безопасности, но при этом страдает лудоманией, из-за чего может пустить любое дело под откос вопреки предупреждениям старших.
-                Прозвище получил из-за отсутствия двух фаланг безымянного пальца на правой руке, которые ему оттяпали опасные люди в результате очередной азартной игры.
-              </p>
-              <a href="#" class="btn btn-primary">Перейти куда-нибудь</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Секция 3: Аккордеон -->
-    <section id="faq" class="container pb-4">
-      <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-              Сюжет
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-            <div class="accordion-body">
-              Сюжет фильма рассказывает о банде грабителей, которые совершают ограбление в Антверпене. Один из главных героев — Фрэнки, он должен доставить украденные драгоценности в Нью-Йорк через Лондон.
-              По дороге Фрэнки посещает нелегальный бойцовский клуб и делает ставку. Сделав это, он попадает в круговорот нежелательных событий. Бриллиант не против заполучить русский мафиози, цыган, двое друзей, грабители, смекалистый боксёр, грозный громила и множество других колоритных персонажей
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Создание
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              За основу сюжета взята история Ленни Маклина, чемпиона по кулачным боям в Англии. Работа над сценарием заняла у Ричи всего три месяца, так как он использовал нереализованные наработки, оставшиеся после съёмок фильма «Карты, деньги, два ствола».
-              Для многих ролей Ричи пригласил актёров, с которыми уже сотрудничал в предыдущем проекте. Среди них были Джейсон Стэтхэм, Джейсон Флеминг, Винни Джонс и другие.
-              Брэд Питт сам предложил свою кандидатуру, позвонив Ричи с просьбой о любой роли в новом фильме. Из-за сложностей с лондонским акцентом Питту досталась роль цыгана-боксера Микки с характерной невнятной речью.
-              Эпизод с комичным ограблением был основан на реальных криминальных хрониках. Ричи специально изучал отчёты о самых нелепых преступлениях, чтобы придать сцене достоверность.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-              Критика
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              Некоторые зрители считают картину переоценённой. Среди недостатков отмечают пустой сюжет, перегруз персонажами, отсутствие актёрской игры (кроме Брэда Питта), обещанного юмора и смеси жанров, из которых ни один не отработан.
-              Другие зрители оставляют положительные отзывы. Они отмечают, что в фильме есть энергия и драйв, а каждый персонаж, даже второстепенный, имеет свой шарм и обаяние.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Футер -->
-  <footer class="bg-dark text-light py-4 mt-auto">
-    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
-      <div>
-        <strong>Контакты:</strong><br>
-        Email: info@example.com<br>
-        Тел.: +7 (999) 123-45-67
-      </div>
-      <div>
-        <strong>Мы в соцсетях:</strong><br>
-        <a href="#" class="link-light me-3">VK</a>
-        <a href="#" class="link-light me-3">Telegram</a>
-        <a href="#" class="link-light">YouTube</a>
-      </div>
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h5 class="card-title">Контакты</h5>
+        <p class="card-text">Перейдите на страницу контактов, если есть вопросы.</p>
+        <a href="/contacts" class="btn btn-outline-secondary btn-sm">Открыть контакты</a>
+      </div></div>
     </div>
-  </footer>
+  </div>
+</main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<footer class="border-top py-3">
+  <div class="container text-center text-muted small">© 2025 Flask Demo · Учебный проект</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
