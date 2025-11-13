@@ -1,0 +1,41 @@
+
+{% extends "base_homework_VD05_Jinja.html" %}
+
+{% block title %}Главная — Мини-сайт{% endblock %}
+
+{% block content %}
+  <div class="p-4 p-md-5 mb-4 bg-light rounded-3">
+    <h1 class="display-6">Добро пожаловать!</h1>
+    <p class="lead">Это простая главная страница на Flask + Bootstrap.</p>
+    <a href="/blog" class="btn btn-primary btn-sm">Перейти в блог</a>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h5 class="card-title">Структура</h5>
+        <p class="card-text">Три отдельные страницы: главная, блог, контакты. Без базового шаблона.</p>
+      </div></div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h5 class="card-title">Технологии</h5>
+        <p class="mb-1">Flask, Jinja2, Bootstrap 5.</p>
+        <ul class="mb-0">
+          <li>Шаблоны — <code>templates/</code></li>
+          <li>Статика — <code>static/</code> (по желанию)</li>
+        </ul>
+      </div></div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h5 class="card-title">Контакты</h5>
+        <p class="card-text">Перейдите на страницу контактов, если есть вопросы.</p>
+        <a href="/contacts" class="btn btn-outline-secondary btn-sm">Открыть контакты</a>
+      </div></div>
+    </div>
+  </div>
+{% endblock %}
+
+
+

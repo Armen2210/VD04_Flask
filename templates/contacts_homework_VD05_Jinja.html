@@ -1,0 +1,52 @@
+
+{% extends "base_homework_VD05_Jinja.html" %}
+
+{% block title %}Контакты — Мини-сайт{% endblock %}
+
+{% block content %}
+
+  <h1 class="h3 mb-4">Контакты</h1>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Связаться с нами</h5>
+          <p class="text-muted small">Форма-заглушка (без обработки на сервере).</p>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Ваше имя</label>
+              <input type="text" class="form-control" placeholder="Иван Иванов">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">E-mail</label>
+              <input type="email" class="form-control" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Сообщение</label>
+              <textarea class="form-control" rows="4" placeholder="Коротко опишите вопрос"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" disabled>Отправить (демо)</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="list-group">
+        <div class="list-group-item">
+          <div class="fw-semibold">E-mail</div>
+          <div class="text-muted">info@example.com</div>
+        </div>
+        <div class="list-group-item">
+          <div class="fw-semibold">Телефон</div>
+          <div class="text-muted">+7 (999) 123-45-67</div>
+        </div>
+        <div class="list-group-item">
+          <div class="fw-semibold">Адрес</div>
+          <div class="text-muted">г. Москва, ул. Примерная, 1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
